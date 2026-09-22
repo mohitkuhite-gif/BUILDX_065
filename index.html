@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EduConnect Nagpur — Scholarships, Attendance &amp; Career Support</title>
+<meta name="description" content="A single platform for Nagpur students to find scholarships, track attendance, spot dropout risk early, and discover ITI courses, internships and jobs.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ SKIP LINK (accessibility) ============ -->
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============ TOAST NOTIFICATION ============ -->
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<!-- ============ NAVBAR ============ -->
+<header id="navbar">
+  <div class="nav-inner">
+    <button class="brand" data-view-link="home" aria-label="EduConnect Nagpur home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48" width="30" height="30">
+          <path d="M24 4 L44 14 L24 24 L4 14 Z" fill="var(--accent)"/>
+          <path d="M12 19 V30 C12 34 17 38 24 38 C31 38 36 34 36 30 V19 L24 25 Z" fill="var(--ink)"/>
+        </svg>
+      </span>
+      <span class="brand-text">EduConnect <em>Nagpur</em></span>
+    </button>
+
+    <nav class="nav-links" id="navLinks" aria-label="Primary">
+      <button class="nav-link" data-view-link="home" data-i18n="nav_home">Home</button>
+      <button class="nav-link" data-view-link="dashboard" data-i18n="nav_dashboard">Dashboard</button>
+      <button class="nav-link" data-view-link="scholarships" data-i18n="nav_scholarships">Scholarships</button>
+      <button class="nav-link" data-view-link="attendance" data-i18n="nav_attendance">Attendance</button>
+      <button class="nav-link" data-view-link="risk" data-i18n="nav_risk">Dropout Risk</button>
+      <button class="nav-link" data-view-link="career" data-i18n="nav_career">Careers</button>
+      <button class="nav-link" data-view-link="resources" data-i18n="nav_resources">Learning</button>
+    </nav>
+
+    <div class="nav-controls">
+      <label for="langSelect" class="visually-hidden">Language</label>
+      <select id="langSelect" aria-label="Choose language">
+        <option value="en">EN</option>
+        <option value="hi">हिं</option>
+        <option value="mr">मर</option>
+      </select>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============================================================ -->
+<!-- HOME VIEW -->
+<!-- ============================================================ -->
+<section class="view active" id="view-home">
+
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow" data-i18n="hero_eyebrow">Built for students in Nagpur</p>
+        <h1 data-i18n="hero_title">One place to find the scholarship, class and career path you didn't know existed.</h1>
+        <p class="hero-sub" data-i18n="hero_sub">EduConnect Nagpur brings scholarships, attendance tracking, early dropout warnings, ITI &amp; job listings and low-data study notes into a single, light-weight platform — built for slow connections and first-generation learners.</p>
+        <div class="hero-actions">
+          <button class="btn btn-primary" data-view-link="dashboard" data-i18n="hero_cta_primary">Open my dashboard</button>
+          <button class="btn btn-ghost" data-view-link="scholarships" data-i18n="hero_cta_secondary">Find a scholarship</button>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><strong>₹0</strong><span data-i18n="stat_cost">cost to use, ever</span></div>
+          <div class="stat"><strong>3</strong><span data-i18n="stat_langs">languages supported</span></div>
+          <div class="stat"><strong>&lt;150KB</strong><span data-i18n="stat_size">total page weight</span></div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 360 360" width="100%" height="100%">
+          <circle cx="180" cy="180" r="160" fill="var(--paper-alt)"/>
+          <rect x="70" y="150" width="220" height="150" rx="6" fill="var(--surface)" stroke="var(--ink)" stroke-width="2"/>
+          <rect x="90" y="130" width="180" height="30" rx="4" fill="var(--accent)"/>
+          <circle cx="180" cy="205" r="34" fill="none" stroke="var(--ink)" stroke-width="3"/>
+          <path d="M164 205 l12 12 l24 -28" fill="none" stroke="var(--accent-2)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="105" y="255" width="60" height="10" rx="5" fill="var(--ink)" opacity="0.5"/>
+          <rect x="105" y="272" width="100" height="10" rx="5" fill="var(--ink)" opacity="0.25"/>
+          <circle cx="270" cy="95" r="26" fill="var(--accent-2)" opacity="0.9"/>
+          <circle cx="60" cy="110" r="16" fill="var(--accent)" opacity="0.8"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="section problem-solution">
+    <div class="ps-grid">
+      <div class="ps-card">
+        <h2 data-i18n="problem_title">The problem</h2>
+        <ul>
+          <li data-i18n="problem_1">Scholarship information is scattered across dozens of portals and notice boards, so eligible students miss deadlines.</li>
+          <li data-i18n="problem_2">Teachers track attendance on paper, so students sliding toward dropout go unnoticed until it's too late.</li>
+          <li data-i18n="problem_3">Rural and municipal-school students rarely hear about ITI courses, internships or entry-level jobs nearby.</li>
+          <li data-i18n="problem_4">Study material online is often heavy, ad-filled and unusable on a slow connection.</li>
+        </ul>
+      </div>
+      <div class="ps-card ps-solution">
+        <h2 data-i18n="solution_title">What EduConnect does</h2>
+        <ul>
+          <li data-i18n="solution_1">Matches students to scholarships instantly, using marks, income, category and location.</li>
+          <li data-i18n="solution_2">Gives teachers a live attendance dashboard with automatic low-attendance warnings.</li>
+          <li data-i18n="solution_3">Flags rising dropout risk early with a transparent, explainable scoring model.</li>
+          <li data-i18n="solution_4">Lists ITI courses, internships and local jobs students can search and filter.</li>
+          <li data-i18n="solution_5">Hosts lightweight notes that load fast, even on 2G.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section features">
+    <h2 class="section-title" data-i18n="features_title">Six tools, one login-free platform</h2>
+    <div class="feature-grid">
+      <button class="feature-card" data-view-link="dashboard">
+        <span class="feature-index">Dashboard</span>
+        <h3 data-i18n="feat_dash_title">Student Dashboard</h3>
+        <p data-i18n="feat_dash_desc">One screen with your attendance, risk level, top scholarships and saved profile.</p>
+      </button>
+      <button class="feature-card" data-view-link="scholarships">
+        <span class="feature-index">Scholarships</span>
+        <h3 data-i18n="feat_sch_title">Scholarship Finder</h3>
+        <p data-i18n="feat_sch_desc">Enter your marks, income and category to see which scholarships you qualify for.</p>
+      </button>
+      <button class="feature-card" data-view-link="attendance">
+        <span class="feature-index">Attendance</span>
+        <h3 data-i18n="feat_att_title">Attendance Tracker</h3>
+        <p data-i18n="feat_att_desc">Subject-wise attendance with live percentages and low-attendance alerts.</p>
+      </button>
+      <button class="feature-card" data-view-link="risk">
+        <span class="feature-index">Risk Alert</span>
+        <h3 data-i18n="feat_risk_title">Dropout Risk Alert</h3>
+        <p data-i18n="feat_risk_desc">A transparent, rule-based indicator that shows exactly why a student is at risk.</p>
+      </button>
+      <button class="feature-card" data-view-link="career">
+        <span class="feature-index">Careers</span>
+        <h3 data-i18n="feat_career_title">Career &amp; Opportunity Hub</h3>
+        <p data-i18n="feat_career_desc">Search ITI courses, internships, skilling programs and local jobs.</p>
+      </button>
+      <button class="feature-card" data-view-link="resources">
+        <span class="feature-index">Learning</span>
+        <h3 data-i18n="feat_res_title">Low-Data Learning</h3>
+        <p data-i18n="feat_res_desc">Short, text-first notes by subject that stay usable on a weak connection.</p>
+      </button>
+    </div>
+  </section>
+
+  <section class="section impact">
+    <h2 class="section-title" data-i18n="impact_title">Why it matters</h2>
+    <div class="impact-grid">
+      <div class="impact-card"><strong>1 in 4</strong><p data-i18n="impact_1">students eligible for a scholarship never apply, simply because they never heard about it.</p></div>
+      <div class="impact-card"><strong>75%</strong><p data-i18n="impact_2">attendance is the usual cut-off for exam eligibility — yet it's rarely visible to students in real time.</p></div>
+      <div class="impact-card"><strong>Early</strong><p data-i18n="impact_3">intervention on dropout risk is far more effective than action taken after a student has already left.</p></div>
+    </div>
+  </section>
+
+</section>
+
+<!-- ============================================================ -->
+<!-- DASHBOARD VIEW -->
+<!-- ============================================================ -->
+<section class="view" id="view-dashboard">
+  <div class="section view-header">
+    <h1 data-i18n="dash_heading">Student Dashboard</h1>
+    <p class="view-sub" data-i18n="dash_sub">Save your details once — every other tool on this site uses them automatically.</p>
+  </div>
+
+  <div class="section dashboard-layout">
+    <form class="card form-card" id="profileForm" novalidate>
+      <h2 data-i18n="dash_form_title">Your profile</h2>
+      <div class="form-row">
+        <label for="profileName" data-i18n="label_name">Full name</label>
+        <input type="text" id="profileName" name="profileName" required autocomplete="name">
+        <span class="field-error" id="err-profileName"></span>
+      </div>
+      <div class="form-row two-col">
+        <div>
+          <label for="profileClass" data-i18n="label_class">Class / course</label>
+          <select id="profileClass" name="profileClass" required>
+            <option value="">—</option>
+            <option value="9">Class 9</option>
+            <option value="10">Class 10</option>
+            <option value="11">Class 11</option>
+            <option value="12">Class 12</option>
+            <option value="ITI">ITI</option>
+            <option value="Diploma">Diploma</option>
+            <option value="UG">Undergraduate</option>
+          </select>
+          <span class="field-error" id="err-profileClass"></span>
+        </div>
+        <div>
+          <label for="profileMarks" data-i18n="label_marks">Marks / percentage</label>
+          <input type="number" id="profileMarks" name="profileMarks" min="0" max="100" step="0.1" required>
+          <span class="field-error" id="err-profileMarks"></span>
+        </div>
+      </div>
+      <div class="form-row two-col">
+        <div>
+          <label for="profileIncome" data-i18n="label_income">Family income (₹ / year)</label>
+          <input type="number" id="profileIncome" name="profileIncome" min="0" required>
+          <span class="field-error" id="err-profileIncome"></span>
+        </div>
+        <div>
+          <label for="profileCategory" data-i18n="label_category">Category</label>
+          <select id="profileCategory" name="profileCategory" required>
+            <option value="">—</option>
+            <option value="General">General</option>
+            <option value="OBC">OBC</option>
+            <option value="SC">SC</option>
+            <option value="ST">ST</option>
+            <option value="EWS">EWS</option>
+            <option value="Minority">Minority</option>
+          </select>
+          <span class="field-error" id="err-profileCategory"></span>
+        </div>
+      </div>
+      <div class="form-row">
+        <label for="profileLocation" data-i18n="label_location">Location (area / taluka)</label>
+        <input type="text" id="profileLocation" name="profileLocation" placeholder="e.g. Nagpur Rural, Kamptee, Hingna" required>
+        <span class="field-error" id="err-profileLocation"></span>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary" data-i18n="btn_save_profile">Save profile</button>
+        <button type="button" class="btn btn-text" id="clearProfileBtn" data-i18n="btn_clear">Clear saved data</button>
+      </div>
+      <p class="form-note" data-i18n="dash_form_note">Saved only on this device, using your browser's local storage. Nothing is sent anywhere.</p>
+    </form>
+
+    <div class="card summary-card" id="dashSummary">
+      <div class="empty-state" id="dashEmptyState">
+        <h2 data-i18n="dash_empty_title">No profile saved yet</h2>
+        <p data-i18n="dash_empty_desc">Fill in the form and save it — your scholarships, attendance, risk level and career matches will appear here.</p>
+      </div>
+
+      <div id="dashFilled" class="hidden">
+        <h2><span data-i18n="dash_welcome">Welcome,</span> <span id="dashName"></span></h2>
+        <p class="dash-meta" id="dashMeta"></p>
+
+        <div class="summary-grid">
+          <div class="summary-tile" data-view-link="attendance">
+            <span class="tile-label" data-i18n="dash_tile_attendance">Attendance</span>
+            <strong id="dashAttendanceValue">—</strong>
+            <div class="mini-bar"><div class="mini-bar-fill" id="dashAttendanceBar"></div></div>
+          </div>
+          <div class="summary-tile" data-view-link="risk">
+            <span class="tile-label" data-i18n="dash_tile_risk">Dropout risk</span>
+            <strong id="dashRiskValue">—</strong>
+          </div>
+          <div class="summary-tile" data-view-link="scholarships">
+            <span class="tile-label" data-i18n="dash_tile_scholarships">Scholarship matches</span>
+            <strong id="dashScholarshipValue">—</strong>
+          </div>
+          <div class="summary-tile" data-view-link="career">
+            <span class="tile-label" data-i18n="dash_tile_career">Career opportunities</span>
+            <strong id="dashCareerValue">—</strong>
+          </div>
+        </div>
+
+        <h3 data-i18n="dash_flow_title">Suggested next steps</h3>
+        <ol class="dash-flow">
+          <li><button class="link-btn" data-view-link="scholarships" data-i18n="dash_step_sch">Check your scholarship matches →</button></li>
+          <li><button class="link-btn" data-view-link="attendance" data-i18n="dash_step_att">Log this week's attendance →</button></li>
+          <li><button class="link-btn" data-view-link="risk" data-i18n="dash_step_risk">Run a dropout risk check →</button></li>
+          <li><button class="link-btn" data-view-link="career" data-i18n="dash_step_career">Browse ITI courses &amp; internships →</button></li>
+          <li><button class="link-btn" data-view-link="resources" data-i18n="dash_step_res">Open today's study notes →</button></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SCHOLARSHIPS VIEW -->
+<!-- ============================================================ -->
+<section class="view" id="view-scholarships">
+  <div class="section view-header">
+    <h1 data-i18n="sch_heading">Scholarship Finder</h1>
+    <p class="view-sub" data-i18n="sch_sub">Demo dataset of common scholarship types. Always confirm details on the official scheme website before applying.</p>
+  </div>
+
+  <div class="section sch-layout">
+    <form class="card form-card" id="scholarshipForm" novalidate>
+      <h2 data-i18n="sch_form_title">Your details</h2>
+      <div class="form-row">
+        <label for="schName" data-i18n="label_name">Full name</label>
+        <input type="text" id="schName" name="schName" required>
+        <span class="field-error" id="err-schName"></span>
+      </div>
+      <div class="form-row two-col">
+        <div>
+          <label for="schClass" data-i18n="label_class">Class / course</label>
+          <select id="schClass" required>
+            <option value="">—</option>
+            <option value="9">Class 9</option>
+            <option value="10">Class 10</option>
+            <option value="11">Class 11</option>
+            <option value="12">Class 12</option>
+            <option value="ITI">ITI</option>
+            <option value="Diploma">Diploma</option>
+            <option value="UG">Undergraduate</option>
+          </select>
+          <span class="field-error" id="err-schClass"></span>
+        </div>
+        <div>
+          <label for="schMarks" data-i18n="label_marks">Marks / percentage</label>
+          <input type="number" id="schMarks" min="0" max="100" step="0.1" required>
+          <span class="field-error" id="err-schMarks"></span>
+        </div>
+      </div>
+      <div class="form-row two-col">
+        <div>
+          <label for="schIncome" data-i18n="label_income">Family income (₹ / year)</label>
+          <input type="number" id="schIncome" min="0" required>
+          <span class="field-error" id="err-schIncome"></span>
+        </div>
+        <div>
+          <label for="schCategory" data-i18n="label_category">Category</label>
+          <select id="schCategory" required>
+            <option value="">—</option>
+            <option value="General">General</option>
+            <option value="OBC">OBC</option>
+            <option value="SC">SC</option>
+            <option value="ST">ST</option>
+            <option value="EWS">EWS</option>
+            <option value="Minority">Minority</option>
+          </select>
+          <span class="field-error" id="err-schCategory"></span>
+        </div>
+      </div>
+      <div class="form-row">
+        <label for="schLocation" data-i18n="label_location">Location (area / taluka)</label>
+        <input type="text" id="schLocation" placeholder="e.g. Nagpur Urban">
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary" data-i18n="btn_find_scholarships">Find scholarships</button>
+        <button type="button" class="btn btn-text" id="fillFromProfileBtnSch" data-i18n="btn_use_profile">Use saved profile</button>
+      </div>
+    </form>
+
+    <div class="results-panel">
+      <div class="results-toolbar">
+        <input type="search" id="schSearchInput" placeholder="Search results by name…" aria-label="Search scholarship results" disabled>
+        <select id="schSortSelect" aria-label="Sort results" disabled>
+          <option value="deadline">Sort: nearest deadline</option>
+          <option value="name">Sort: name (A–Z)</option>
+        </select>
+      </div>
+      <p class="demo-note" data-i18n="sch_demo_note">⚠ Demo data only. Verify eligibility, amounts and deadlines on the official scholarship portal before applying.</p>
+      <div id="scholarshipResults" class="results-grid">
+        <p class="placeholder-text" id="schPlaceholder" data-i18n="sch_placeholder">Fill in the form and click "Find scholarships" to see your matches here.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ATTENDANCE VIEW -->
+<!-- ============================================================ -->
+<section class="view" id="view-attendance">
+  <div class="section view-header">
+    <h1 data-i18n="att_heading">Attendance Tracker</h1>
+    <p class="view-sub" data-i18n="att_sub">Add each subject once — percentages and warnings update automatically as you edit them.</p>
+  </div>
+
+  <div class="section">
+    <div id="attWarning" class="warning-banner hidden" role="alert"></div>
+
+    <div class="overview-grid">
+      <div class="overview-card">
+        <span class="tile-label" data-i18n="att_total">Total classes</span>
+        <strong id="attTotalClasses">0</strong>
+      </div>
+      <div class="overview-card">
+        <span class="tile-label" data-i18n="att_attended">Attended</span>
+        <strong id="attAttended">0</strong>
+      </div>
+      <div class="overview-card overview-card-wide">
+        <span class="tile-label" data-i18n="att_percentage">Overall attendance</span>
+        <strong id="attPercentage">0%</strong>
+        <div class="progress-track"><div class="progress-fill" id="attProgressBar"></div></div>
+        <span class="tile-status" id="attStatusLabel"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section att-layout">
+    <form class="card form-card" id="addSubjectForm" novalidate>
+      <h2 data-i18n="att_add_title">Add / update a subject</h2>
+      <div class="form-row">
+        <label for="subjectName" data-i18n="label_subject">Subject name</label>
+        <input type="text" id="subjectName" required placeholder="e.g. Mathematics">
+        <span class="field-error" id="err-subjectName"></span>
+      </div>
+      <div class="form-row two-col">
+        <div>
+          <label for="subjectTotal" data-i18n="label_total_classes">Total classes held</label>
+          <input type="number" id="subjectTotal" min="1" required>
+          <span class="field-error" id="err-subjectTotal"></span>
+        </div>
+        <div>
+          <label for="subjectAttended" data-i18n="label_attended_classes">Classes attended</label>
+          <input type="number" id="subjectAttended" min="0" required>
+          <span class="field-error" id="err-subjectAttended"></span>
+        </div>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary" data-i18n="btn_save_subject">Save subject</button>
+      </div>
+    </form>
+
+    <div class="card">
+      <h2 data-i18n="att_list_title">Subject-wise attendance</h2>
+      <div id="subjectAttendanceList" class="subject-grid">
+        <p class="placeholder-text" id="attPlaceholder" data-i18n="att_placeholder">No subjects added yet. Use the form to add your first subject.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- DROPOUT RISK VIEW -->
+<!-- ============================================================ -->
+<section class="view" id="view-risk">
+  <div class="section view-header">
+    <h1 data-i18n="risk_heading">Dropout Risk Alert</h1>
+    <p class="view-sub" data-i18n="risk_sub">A transparent, rule-based demo indicator — not a medical or scientifically validated prediction.</p>
+  </div>
+
+  <div class="section risk-layout">
+    <form class="card form-card" id="riskForm" novalidate>
+      <h2 data-i18n="risk_form_title">Enter the latest figures</h2>
+      <div class="form-row">
+        <label for="riskAttendance" data-i18n="label_risk_attendance">Attendance percentage</label>
+        <input type="number" id="riskAttendance" min="0" max="100" step="0.1" required>
+        <span class="field-error" id="err-riskAttendance"></span>
+      </div>
+      <div class="form-row">
+        <label for="riskAbsences" data-i18n="label_risk_absences">Absences in the last 30 days</label>
+        <input type="number" id="riskAbsences" min="0" required>
+        <span class="field-error" id="err-riskAbsences"></span>
+      </div>
+      <div class="form-row">
+        <label for="riskMarks" data-i18n="label_risk_marks">Recent academic performance (%)</label>
+        <input type="number" id="riskMarks" min="0" max="100" step="0.1" required>
+        <span class="field-error" id="err-riskMarks"></span>
+      </div>
+      <div class="form-row">
+        <label for="riskAssignments" data-i18n="label_risk_assignments">Assignment completion (%)</label>
+        <input type="number" id="riskAssignments" min="0" max="100" step="0.1" required>
+        <span class="field-error" id="err-riskAssignments"></span>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary" data-i18n="btn_analyze_risk">Analyze risk</button>
+        <button type="button" class="btn btn-text" id="fillFromAttendanceBtn" data-i18n="btn_use_attendance">Use saved attendance</button>
+      </div>
+    </form>
+
+    <div class="card risk-result-card" id="riskResultCard">
+      <div class="placeholder-text" id="riskPlaceholder" data-i18n="risk_placeholder">Enter the figures on the left and click "Analyze risk" to see the result here.</div>
+
+      <div id="riskResultContent" class="hidden">
+        <div class="risk-badge" id="riskLevelBadge">
+          <span id="riskLevel">—</span>
+        </div>
+        <p class="risk-score-line"><span data-i18n="risk_score_label">Risk score:</span> <strong id="riskScore">0</strong>/100</p>
+        <div class="progress-track risk-progress-track"><div class="progress-fill" id="riskScoreBar"></div></div>
+
+        <h3 data-i18n="risk_reasons_title">Contributing factors</h3>
+        <ul id="riskReasons" class="reason-list"></ul>
+
+        <h3 data-i18n="risk_actions_title">Suggested next steps</h3>
+        <ul id="riskActions" class="action-list"></ul>
+
+        <p class="demo-note" data-i18n="risk_demo_note">⚠ This is a demo rule-based indicator built for this hackathon. It is not a medical, psychological or scientifically validated prediction — use it only as a conversation starter between teacher and student.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- CAREER HUB VIEW -->
+<!-- ============================================================ -->
+<section class="view" id="view-career">
+  <div class="section view-header">
+    <h1 data-i18n="career_heading">Career &amp; Opportunity Hub</h1>
+    <p class="view-sub" data-i18n="career_sub">Demo listings of ITI courses, internships, skilling programs and entry-level jobs around Nagpur.</p>
+  </div>
+
+  <div class="section">
+    <p class="demo-note" data-i18n="career_demo_note">⚠ Demo data for this hackathon prototype. In production this would connect to live listings from ITI boards, NCS and local employers.</p>
+    <div class="results-toolbar">
+      <input type="search" id="careerSearchInput" placeholder="Search by title or skill…" aria-label="Search opportunities">
+      <select id="careerTypeFilter" aria-label="Filter by type">
+        <option value="all">All types</option>
+        <option value="ITI">ITI course</option>
+        <option value="Internship">Internship</option>
+        <option value="Skill Development">Skill development</option>
+        <option value="Job">Job</option>
+      </select>
+      <select id="careerLocationFilter" aria-label="Filter by location">
+        <option value="all">All locations</option>
+      </select>
+    </div>
+    <div id="careerResults" class="results-grid"></div>
+    <p class="placeholder-text hidden" id="careerNoResults" data-i18n="career_no_results">No opportunities match your search. Try clearing a filter.</p>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- LEARNING RESOURCES VIEW -->
+<!-- ============================================================ -->
+<section class="view" id="view-resources">
+  <div class="section view-header">
+    <h1 data-i18n="res_heading">Low-Data Learning Resources</h1>
+    <p class="view-sub" data-i18n="res_sub">Text-first notes, built to stay light on a slow connection.</p>
+  </div>
+
+  <div class="section">
+    <div class="results-toolbar">
+      <input type="search" id="resourceSearchInput" placeholder="Search notes…" aria-label="Search learning resources">
+      <select id="resourceCategoryFilter" aria-label="Filter by subject">
+        <option value="all">All subjects</option>
+      </select>
+    </div>
+    <div id="resourceResults" class="results-grid"></div>
+    <p class="placeholder-text hidden" id="resourceNoResults" data-i18n="res_no_results">No resources match your search.</p>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ RESOURCE MODAL ============ -->
+<div class="modal-overlay hidden" id="resourceModal">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="resourceModalTitle">
+    <button class="modal-close" id="resourceModalClose" aria-label="Close">×</button>
+    <p class="modal-eyebrow" id="resourceModalMeta"></p>
+    <h2 id="resourceModalTitle"></h2>
+    <div id="resourceModalBody"></div>
+  </div>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer id="siteFooter">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="brand-text">EduConnect <em>Nagpur</em></span>
+      <p data-i18n="footer_tagline">A student-built platform for scholarships, attendance and career discovery.</p>
+    </div>
+    <div class="footer-links">
+      <button class="link-btn" data-view-link="scholarships" data-i18n="nav_scholarships">Scholarships</button>
+      <button class="link-btn" data-view-link="attendance" data-i18n="nav_attendance">Attendance</button>
+      <button class="link-btn" data-view-link="career" data-i18n="nav_career">Careers</button>
+      <button class="link-btn" data-view-link="resources" data-i18n="nav_resources">Learning</button>
+    </div>
+    <p class="footer-note" data-i18n="footer_note">Prototype built for a student hackathon. All scholarship, career and resource data shown is demo data.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
